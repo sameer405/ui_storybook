@@ -1,0 +1,36 @@
+name: Publish @fantom/ui
+
+# Publishes to GitHub Packages when a GitHub Release is published,
+# or manually via the Actions tab (workflow_dispatch).
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # required to publish to GitHub Packages
+    # If this package lives in a subdirectory of the repo, set the path here:
+    # defaults:
+    #   run:
+    #     working-directory: fantom-ui
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@fantom'
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - run: npm publish
+        env:
+          # setup-node writes this into ~/.npmrc as the GitHub Packages auth token.
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

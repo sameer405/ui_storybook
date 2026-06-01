@@ -1,0 +1,10 @@
+# Only ship the build output + preset (see package.json "files").
+src
+.storybook
+storybook-static
+tsup.config.ts
+tsconfig.json
+tailwind.config.cjs
+postcss.config.cjs
+*.log
+.DS_Store
