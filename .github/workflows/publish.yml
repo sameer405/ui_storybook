@@ -1,4 +1,4 @@
-name: Publish @fantom/ui
+name: Publish @sameer405/ui
 
 # Publishes to GitHub Packages when a GitHub Release is published,
 # or manually via the Actions tab (workflow_dispatch).
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com
-          scope: '@fantom'
+          scope: '@sameer405'
 
       - run: npm ci
 

@@ -1,5 +1,5 @@
 /**
- * @fantom/ui Tailwind preset
+ * @sameer405/ui Tailwind preset
  *
  * The components in this package render with stock Tailwind utilities plus a few
  * arbitrary values, so they work as long as the consumer runs Tailwind and adds
@@ -10,10 +10,10 @@
  * Usage in a consuming app's tailwind.config.js:
  *
  *   module.exports = {
- *     presets: [require('@fantom/ui/tailwind-preset')],
+ *     presets: [require('@sameer405/ui/tailwind-preset')],
  *     content: [
  *       './src/**\/*.{ts,tsx}',
- *       './node_modules/@fantom/ui/dist/**\/*.js', // generate the lib's classes
+ *       './node_modules/@sameer405/ui/dist/**\/*.js', // generate the lib's classes
  *     ],
  *   }
  */

@@ -1,5 +1,5 @@
 /**
- * @fantom/ui — RapidCanvas UX Design Library
+ * @sameer405/ui — RapidCanvas UX Design Library
  * Components and design tokens extracted from Figma (F7YIPUOWnqIZAOcnFszBcr).
  *
  * Styling is Tailwind-based: the consuming app must run Tailwind and apply this

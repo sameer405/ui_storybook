@@ -1,4 +1,4 @@
-# @fantom/ui
+# @sameer405/ui
 
 RapidCanvas UX Design Library — 23 React components + design tokens, built from
 Figma (`F7YIPUOWnqIZAOcnFszBcr`). This package is the **single source of truth**
@@ -29,13 +29,12 @@ npm run typecheck
 
 ## Publish (GitHub Packages)
 
-This package publishes to **GitHub Packages** under the `@fantom` scope. GitHub
-Packages requires the npm scope to match the GitHub org/user, so `@fantom` must
-map to a GitHub org (or user) named `fantom`, and `repository` in `package.json`
-must point at that org's repo. Update both if your org/repo names differ.
+This package publishes to **GitHub Packages** under the `@sameer405` scope, which
+matches the repo owner (`github.com/sameer405/ui_storybook`) — a requirement of
+GitHub Packages. `repository` in `package.json` points at that repo.
 
 Config is already in place:
-- `.npmrc` routes `@fantom` → `https://npm.pkg.github.com` and reads the token
+- `.npmrc` routes `@sameer405` → `https://npm.pkg.github.com` and reads the token
   from `$NODE_AUTH_TOKEN`.
 - `publishConfig` in `package.json` pins the publish registry.
 
@@ -62,23 +61,23 @@ npm publish           # prepublishOnly runs the build first
 
 ## Consume in another project
 
-1. Tell the consuming project where the `@fantom` scope lives. Add an `.npmrc`
+1. Tell the consuming project where the `@sameer405` scope lives. Add an `.npmrc`
    at its repo root (the token can come from an env var so it isn't committed):
 
    ```ini
-   @fantom:registry=https://npm.pkg.github.com
+   @sameer405:registry=https://npm.pkg.github.com
    //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
    ```
 
    For a **private** package the consumer must export a `NODE_AUTH_TOKEN` (a
    GitHub PAT with at least `read:packages`) before installing. In CI, use
    `actions/setup-node` with `registry-url: https://npm.pkg.github.com` and
-   `scope: '@fantom'`, passing `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}`.
+   `scope: '@sameer405'`, passing `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}`.
 
 2. Install:
 
    ```bash
-   npm install @fantom/ui
+   npm install @sameer405/ui
    ```
 
 3. Add the preset and the package's dist to your Tailwind config so the utility
@@ -87,10 +86,10 @@ npm publish           # prepublishOnly runs the build first
    ```js
    // tailwind.config.js
    module.exports = {
-     presets: [require('@fantom/ui/tailwind-preset')],
+     presets: [require('@sameer405/ui/tailwind-preset')],
      content: [
        './src/**/*.{ts,tsx}',
-       './node_modules/@fantom/ui/dist/**/*.js', // <- required
+       './node_modules/@sameer405/ui/dist/**/*.js', // <- required
      ],
    };
    ```
@@ -98,7 +97,7 @@ npm publish           # prepublishOnly runs the build first
 4. Use components:
 
    ```tsx
-   import { Button, Badge, Tabs } from '@fantom/ui';
+   import { Button, Badge, Tabs } from '@sameer405/ui';
 
    export function Example() {
      return <Button variant="primary" size="md">Save</Button>;
